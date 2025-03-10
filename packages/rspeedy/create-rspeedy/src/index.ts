@@ -11,6 +11,7 @@ import type { Argv } from 'create-rstack'
 import { checkCancel, create, multiselect, select } from 'create-rstack'
 
 type LANG = 'js' | 'ts'
+type FRAMEWORK = 'react' | 'vue'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const require = createRequire(import.meta.url)
@@ -44,6 +45,8 @@ const composeTemplateName = ({
 const TEMPLATES: Template[] = [
   { template: 'react', tools: {}, lang: 'ts' },
   { template: 'react', tools: {}, lang: 'js' },
+  { template: 'vue', tools: {}, lang: 'ts' },
+  { template: 'vue', tools: {}, lang: 'js' },
 ] as const
 
 async function getTemplateName({ template }: Argv) {
@@ -66,6 +69,16 @@ async function getTemplateName({ template }: Argv) {
       ],
     }),
   )
+  
+  const framework = checkCancel<FRAMEWORK>(
+    await select({
+      message: 'Select framework',
+      options: [
+        { value: 'react', label: 'React' },
+        { value: 'vue', label: 'Vue' },
+      ],
+    }),
+  )
 
   const tools = checkCancel<string[]>(
     await multiselect({
@@ -85,7 +98,7 @@ async function getTemplateName({ template }: Argv) {
   )
 
   return composeTemplateName({
-    template: 'react',
+    template: framework,
     lang: language,
     tools: Object.fromEntries(
       tools.map((tool) => [tool, tool]),
