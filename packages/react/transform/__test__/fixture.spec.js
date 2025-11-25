@@ -914,6 +914,7 @@ describe('dynamic import', () => {
   await import();
   await import(0);
   await import(0, 0);
+  await import("./index.js");
   await import("./index.js", { with: { typo: "component" } });
   await import("https://www/a.js", { with: { typo: "component" } });
   await import(url, { with: { typo: "component" } });
@@ -938,12 +939,14 @@ describe('dynamic import', () => {
     );
 
     expect(result.code).toMatchInlineSnapshot(`
-      "import "@lynx-js/react/experimental/lazy/import";
+      "import "@lynx-js/react/experimental/lazy/lynx";
+      import "@lynx-js/react/experimental/lazy/import";
       import { __dynamicImport } from "@lynx-js/react/internal";
       (async function() {
           await import();
           await import(0);
           await import(0, 0);
+          await import(/*webpackChunkName: "./index.js-"*/ "./index.js");
           await import("./index.js", {
               with: {
                   typo: "component"
@@ -991,8 +994,8 @@ describe('dynamic import', () => {
         ",
           "${errorIcon} [ERROR] \`import("...", ...)\` with invalid options is not allowed
 
-            :5:8:
-              5 │   await import("./index.js", { with: { typo: "component" } });
+            :6:8:
+              6 │   await import("./index.js", { with: { typo: "component" } });
                 ╵         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
         ",

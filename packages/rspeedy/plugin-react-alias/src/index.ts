@@ -130,6 +130,7 @@ export function pluginReactAlias(options: Options): RsbuildPlugin {
           // TODO: add `debug` after bump peerDependencies['@lynx-js/react'] to 0.111.1
           // 'debug',
           'experimental/lazy/import',
+          'experimental/lazy/lynx',
           'internal',
           'legacy-react-runtime',
           'runtime-components',

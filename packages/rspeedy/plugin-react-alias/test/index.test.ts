@@ -68,6 +68,13 @@ describe('React - alias', () => {
       ),
     )
 
+    expect(config.resolve.alias).toHaveProperty(
+      '@lynx-js/react/experimental/lazy/lynx$',
+      expect.stringContaining(
+        '/packages/react/runtime/lazy/lynx.js'.replaceAll('/', path.sep),
+      ),
+    )
+
     expect(config.resolve.alias).not.toHaveProperty(
       '@lynx-js/react/debug$',
     )
