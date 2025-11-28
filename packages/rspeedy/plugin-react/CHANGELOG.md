@@ -1,5 +1,19 @@
 # @lynx-js/react-rsbuild-plugin
 
+## 0.12.0
+
+### Minor Changes
+
+- **BREAKING CHANGE**: Require `@lynx-js/rspeedy` 0.12.0. ([#1951](https://github.com/lynx-family/lynx-stack/pull/1951))
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @lynx-js/react-alias-rsbuild-plugin@0.12.0
+  - @lynx-js/use-sync-external-store@1.5.0
+  - @lynx-js/react-refresh-webpack-plugin@0.3.4
+  - @lynx-js/react-webpack-plugin@0.7.2
+
 ## 0.11.4
 
 ### Patch Changes

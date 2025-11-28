@@ -1,5 +1,15 @@
 # @lynx-js/react
 
+## 0.114.6
+
+### Patch Changes
+
+- Preserve assignments to webpack runtime variables like `__webpack_public_path__`, `__webpack_require__.p`, etc. ([#1958](https://github.com/lynx-family/lynx-stack/pull/1958))
+
+- Fixed blank screen issues with nested lists. Lazily created nested lists were being flushed but not properly recorded, causing rendering failures. ([#1963](https://github.com/lynx-family/lynx-stack/pull/1963))
+
+- fix: export `createRef` and `useRef` from `@lynx-js/react/legacy-react-runtime` ([#1953](https://github.com/lynx-family/lynx-stack/pull/1953))
+
 ## 0.114.5
 
 ### Patch Changes
