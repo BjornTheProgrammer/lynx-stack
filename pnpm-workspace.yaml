@@ -21,6 +21,7 @@ packages:
   - packages/use-sync-external-store
   - packages/web-platform/*
   - packages/webpack/*
+  - packages/vue
   - website
 
 # From `@pnpm/plugin-better-defaults`
